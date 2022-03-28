@@ -18,10 +18,8 @@ SAD_EMO = r" (:'?[/|\(]) "
 print("Happy emoticons:", set(re.findall(HAPPY_EMO, tweets_text)))
 print("Sad emoticons:", set(re.findall(SAD_EMO, tweets_text)))
 
-
 import nltk
 from nltk.tokenize import word_tokenize
-
 
 def most_used_words(text):
 tokens = word_tokenize(text)
@@ -156,7 +154,6 @@ sub_learning = pipeline.transform(sub_data.SentimentText)
 sub = pd.DataFrame(sub_data.ItemID, columns=("ItemID", "Sentiment"))
 sub["Sentiment"] = mnb.predict(sub_learning)
 print(sub)
-
 model = MultinomialNB()
 model.fit(learning_data, sentiments_learning)
 tweet = pd.Series([input(),])
@@ -164,3 +161,4 @@ tweet = pipeline.transform(tweet)
 proba = model.predict_proba(tweet)[0]
 print("The probability that this tweet is sad is:", proba[0])
 print("The probability that this tweet is happy is:", proba[1])
+
